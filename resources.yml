@@ -2,7 +2,7 @@ AWSTemplateFormatVersion: "2010-09-09"
 Description: Simple cloud formation for bucket creation and configuration
 
 Parameters:
-  BucketName: { Type: String, Default: "bucket-with-cloudformation-1" }
+  BucketName: { Type: String, Default: "bucket-with-cloudformation" }
   IAMUserName:
     Type: String
     Description: IAM User Name
@@ -10,13 +10,23 @@ Parameters:
     ConstraintDescription: must be a valid IAM user name
 
 Resources:  
-  AccessLogBucketiac:
-    Type: AWS::S3::Bucket
+  S3Bucket:
+    DeletionPolicy: Retain
+    Type: 'AWS::S3::Bucket'
+    Description: Creating Amazon S3 bucket from CloudFormation
     Properties:
       AccessControl: Private
-      Tags:
-      - Key: 'iac-type'
-        Value: 's3'
+      PublicAccessBlockConfiguration:
+        BlockPublicAcls: true
+        BlockPublicPolicy: true
+        IgnorePublicAcls: true
+        RestrictPublicBuckets: true
+      BucketEncryption:
+        ServerSideEncryptionConfiguration:
+          - ServerSideEncryptionByDefault:
+              SSEAlgorithm: AES256
+      VersioningConfiguration:
+        Status: Enabled
 
   VPCiac:
     Type: AWS::EC2::VPC
