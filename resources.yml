@@ -10,7 +10,7 @@ Parameters:
     ConstraintDescription: must be a valid IAM user name
 
 Resources:  
-  AccessLogBucket-iac:
+  AccessLogBucket:
     Type: AWS::S3::Bucket
     Properties:
       AccessControl: LogDeliveryWrite
