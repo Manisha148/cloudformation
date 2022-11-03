@@ -2,17 +2,17 @@ AWSTemplateFormatVersion: "2010-09-09"
 Description: Simple cloud formation for bucket creation and configuration
 
 Parameters:
+  BucketName: { Type: String, Default: "bucket-with-cloudformation-1" }
   IAMUserName:
     Type: String
     Description: IAM User Name
     Default: "user1"
     ConstraintDescription: must be a valid IAM user name
 
-Resources:
-  AccessLogBucketiac:
+Resources:  
+  AccessLogBucket-iac:
     Type: AWS::S3::Bucket
     Properties:
-      BucketName: "cf-bucket-demo" 
       AccessControl: LogDeliveryWrite
       Tags:
       - Key: 'iac-type'
