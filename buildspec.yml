@@ -8,9 +8,7 @@ phases:
 post_build:
     commands:
       - echo post-build commands started
-      - mkdir build-artifacts
-      - cp -R resources-templates/resources.yml build-artifacts
 
 artifacts:
   files:
-    - allinone-iac/build-artifacts/*
+    - **/*
