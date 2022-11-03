@@ -8,7 +8,16 @@ Parameters:
     Default: "user1"
     ConstraintDescription: must be a valid IAM user name
 
-Resources:  
+Resources:
+  AccessLogBucketiac:
+    Type: AWS::S3::Bucket
+    Properties:
+      BucketName: "cf-bucket" 
+      AccessControl: LogDeliveryWrite
+      Tags:
+      - Key: 'iac-type'
+        Value: 's3'
+
   VPCiac:
     Type: AWS::EC2::VPC
     Properties:
