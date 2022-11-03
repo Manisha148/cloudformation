@@ -18,7 +18,7 @@ Resources:
       - Key: 'iac-type'
         Value: 's3'
 
-  VPC-iac:
+  VPCiac:
     Type: AWS::EC2::VPC
     Properties:
       CidrBlock: 10.1.0.0/16
@@ -51,7 +51,7 @@ Resources:
         - Key: 'iac-type'
           Value: 'ecr-repo'
 
-  ECS-iac:
+  ECSiac:
     Type: 'AWS::ECS::TaskDefinition'
     DeletionPolicy : Retain
     Properties:
