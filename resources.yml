@@ -12,7 +12,7 @@ Resources:
   AccessLogBucketiac:
     Type: AWS::S3::Bucket
     Properties:
-      BucketName: "cf-bucket" 
+      BucketName: "cf-bucket-demo" 
       AccessControl: LogDeliveryWrite
       Tags:
       - Key: 'iac-type'
@@ -32,7 +32,7 @@ Resources:
     Type: AWS::ECR::Repository
     DeletionPolicy : Retain
     Properties:
-      RepositoryName: "myecsrepo"
+      RepositoryName: "ecsrepo-demo"
       RepositoryPolicyText:
         Version: "2012-10-17"
         Statement:
@@ -50,7 +50,7 @@ Resources:
       Tags:
         - Key: 'iac-type'
           Value: 'ecr-repo'
-
+  
   ECSiac:
     Type: 'AWS::ECS::TaskDefinition'
     DeletionPolicy : Retain
