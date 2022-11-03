@@ -1,0 +1,101 @@
+AWSTemplateFormatVersion: "2010-09-09"
+Description: Simple cloud formation for bucket creation and configuration
+
+Parameters:
+  BucketName: { Type: String, Default: "bucket-with-cloudformation-1" }
+  IAMUserName:
+    Type: String
+    Description: IAM User Name
+    Default: "user1"
+    ConstraintDescription: must be a valid IAM user name
+
+Resources:  
+  AccessLogBucket-iac:
+    Type: AWS::S3::Bucket
+    Properties:
+      AccessControl: LogDeliveryWrite
+      Tags:
+      - Key: 'iac-type'
+        Value: 's3'
+
+  VPC-iac:
+    Type: AWS::EC2::VPC
+    Properties:
+      CidrBlock: 10.1.0.0/16
+      EnableDnsSupport: true
+      EnableDnsHostnames: true
+      Tags:
+      - Key: 'iac-type'
+        Value: 'vpc'
+
+  ECRRepository:
+    Type: AWS::ECR::Repository
+    DeletionPolicy : Retain
+    Properties:
+      RepositoryName: "myecsrepo"
+      RepositoryPolicyText:
+        Version: "2012-10-17"
+        Statement:
+          - Sid: "AllowPushPull"
+            Effect: Allow
+            Principal: "*"
+            Action:
+              - "ecr:GetDownloadUrlForLayer"
+              - "ecr:BatchGetImage"
+              - "ecr:BatchCheckLayerAvailability"
+              - "ecr:PutImage"
+              - "ecr:InitiateLayerUpload"
+              - "ecr:UploadLayerPart"
+              - "ecr:CompleteLayerUpload"
+        Tags:
+      - Key: 'iac-type'
+        Value: 'ecr-repo'
+
+  ECS-iac:
+    Type: 'AWS::ECS::TaskDefinition'
+    DeletionPolicy : Retain
+    Properties:
+      containerDefinitions:
+        - command:
+            - >-
+              /bin/sh -c "echo '<html> <head> <title>Amazon ECS Sample
+              App</title> <style>body {margin-top: 40px; background-color:
+              #333;} </style> </head><body> <div
+              style=color:white;text-align:center> <h1>Amazon ECS Sample
+              App</h1> <h2>Congratulations!</h2> <p>Your application is now
+              running on a container in Amazon ECS.</p> </div></body></html>' > 
+              /usr/local/apache2/htdocs/index.html && httpd-foreground"
+          entryPoint:
+            - sh
+            - '-c'
+          essential: true
+          image: 'httpd:2.4'
+          logConfiguration:
+            logDriver: awslogs
+            options:
+              awslogs-group: /ecs/fargate-task-definition
+              awslogs-region: us-east-1
+              awslogs-stream-prefix: ecs
+          name: sample-fargate-app
+          portMappings:
+            - containerPort: 80
+              hostPort: 80
+              protocol: tcp
+      cpu: '256'
+      executionRoleArn: 'arn:aws:iam::978526189023:role/ecs_cloudf'
+      family: fargate-task-definition-cfn
+      memory: '512'
+      networkMode: awsvpc
+      requiresCompatibilities:
+        - FARGATE
+      runtimePlatform:
+        OperatingSystemFamily: LINUX    
+      Tags:
+      - Key: 'iac-type'
+        Value: 'ecs'   
+
+
+          
+
+
+

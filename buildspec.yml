@@ -1,0 +1,16 @@
+version: 0.2
+
+phases:
+  build:
+    commands:
+      - echo Build started on `date`
+
+post_build:
+    commands:
+      - echo post-build commands started
+      - mkdir build-artifacts
+      - cp -R resources-templates/resources.yml build-artifacts
+
+artifacts:
+  files:
+    - build-artifacts/*.zip
