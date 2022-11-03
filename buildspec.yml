@@ -4,11 +4,9 @@ phases:
   build:
     commands:
       - echo Build started on `date`
+      - aws cloudformation deploy --template-file resources.yml --stack-name --profile default --parameter-overrides IAMUserName=user1
 
 post_build:
     commands:
       - echo post-build commands started
 
-artifacts:
-  files:
-    - build/*
