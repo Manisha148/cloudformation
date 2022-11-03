@@ -18,7 +18,7 @@ Resources:
       - Key: 'iac-type'
         Value: 's3'
 
-   VPC:
+  VPC:
     Type: AWS::EC2::VPC
     Properties:
       CidrBlock: 10.1.0.0/16
