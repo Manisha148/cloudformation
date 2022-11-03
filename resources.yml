@@ -9,13 +9,6 @@ Parameters:
     ConstraintDescription: must be a valid IAM user name
 
 Resources:  
-  S3Bucket:
-    DeletionPolicy: Retain
-    Type: 'AWS::S3::Bucket'
-    Description: Creating Amazon S3 bucket from CloudFormation
-    Properties:
-      BucketName: MyHardCodedBucket
-
   VPCiac:
     Type: AWS::EC2::VPC
     Properties:
