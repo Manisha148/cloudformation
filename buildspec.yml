@@ -4,5 +4,6 @@ phases:
   build:
     commands:
       - echo Build started on `date`
+      - aws s3 cp ./ s3://sampletest//codepipeline-us-east-1-840589792144 --recursive 
 
 
