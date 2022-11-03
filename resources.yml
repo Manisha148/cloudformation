@@ -47,9 +47,9 @@ Resources:
               - "ecr:InitiateLayerUpload"
               - "ecr:UploadLayerPart"
               - "ecr:CompleteLayerUpload"
-        Tags:
-      - Key: 'iac-type'
-        Value: 'ecr-repo'
+      Tags:
+        - Key: 'iac-type'
+          Value: 'ecr-repo'
 
   ECS-iac:
     Type: 'AWS::ECS::TaskDefinition'
