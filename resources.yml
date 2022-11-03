@@ -13,7 +13,7 @@ Resources:
   AccessLogBucketiac:
     Type: AWS::S3::Bucket
     Properties:
-      AccessControl: LogDeliveryWrite
+      AccessControl: Private
       Tags:
       - Key: 'iac-type'
         Value: 's3'
