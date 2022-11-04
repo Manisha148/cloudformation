@@ -66,11 +66,4 @@ Resources:
       requiresCompatibilities:
         - FARGATE
       runtimePlatform:
-        OperatingSystemFamily: LINUX               
-
-
-
-
-          
-
-
+        OperatingSystemFamily: LINUX     
