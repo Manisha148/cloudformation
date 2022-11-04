@@ -1,9 +1,13 @@
 version: 0.2
-
 phases:
   build:
     commands:
-      - echo Build started on `date`
-  
+      - echo Build started on `date` 
+      - aws cloudformation package --template-file resources.yml --s3-bucket codepipeline-us-east-1-840589792144 --output-template-file outputtemplate.yml
+    #   - aws cloudformation deploy  --stack-name stack1  --template-file resources.yml  --capabilities CAPABILITY_IAM
 
-
+artifacts:
+  type: zip
+  files:
+    - resources.yml
+    - outputtemplate.yml 
