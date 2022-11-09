@@ -67,30 +67,36 @@ Resources:
 #         - FARGATE
 #       runtimePlatform:
 #         OperatingSystemFamily: LINUX     
-Type: AWS::ECR::Repository
-Properties: 
-  EncryptionConfiguration: 
-    EncryptionConfiguration
-  ImageScanningConfiguration: 
-    ImageScanningConfiguration
-  ImageTagMutability: String
-  LifecyclePolicy: 
-    LifecyclePolicy
-  RepositoryName: String
-  RepositoryPolicyText: Json
-  Tags: 
-    - Tag
-Type: AWS::ECS::Cluster
-Properties: 
-  CapacityProviders: 
-    - String
-  ClusterName: String
-  ClusterSettings: 
-    - ClusterSettings
-  Configuration: 
-    ClusterConfiguration
-  DefaultCapacityProviderStrategy: 
-    - CapacityProviderStrategyItem
-  Tags: 
-    - Tag
+AWSTemplateFormatVersion: 2010-09-09
+Metadata:
+  'AWS::CloudFormation::Designer':
+    7c791609-0a54-46f9-9dd1-b69e8cc781e7:
+      size:
+        width: 60
+        height: 60
+      position:
+        x: 446
+        'y': 117
+      z: 0
+    18e57266-58d5-4e58-ad7b-35c2bda94b74:
+      size:
+        width: 60
+        height: 60
+      position:
+        x: 624
+        'y': 135
+      z: 0
+Resources:
+  ECRR4Z8GH:
+    Type: 'AWS::ECR::Repository'
+    Properties: {}
+    Metadata:
+      'AWS::CloudFormation::Designer':
+        id: 7c791609-0a54-46f9-9dd1-b69e8cc781e7
+  ECSC4A7XB:
+    Type: 'AWS::ECS::Cluster'
+    Properties: {}
+    Metadata:
+      'AWS::CloudFormation::Designer':
+        id: 18e57266-58d5-4e58-ad7b-35c2bda94b74
 
