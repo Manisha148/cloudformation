@@ -67,3 +67,30 @@ Resources:
 #         - FARGATE
 #       runtimePlatform:
 #         OperatingSystemFamily: LINUX     
+Type: AWS::ECR::Repository
+Properties: 
+  EncryptionConfiguration: 
+    EncryptionConfiguration
+  ImageScanningConfiguration: 
+    ImageScanningConfiguration
+  ImageTagMutability: String
+  LifecyclePolicy: 
+    LifecyclePolicy
+  RepositoryName: String
+  RepositoryPolicyText: Json
+  Tags: 
+    - Tag
+Type: AWS::ECS::Cluster
+Properties: 
+  CapacityProviders: 
+    - String
+  ClusterName: String
+  ClusterSettings: 
+    - ClusterSettings
+  Configuration: 
+    ClusterConfiguration
+  DefaultCapacityProviderStrategy: 
+    - CapacityProviderStrategyItem
+  Tags: 
+    - Tag
+
