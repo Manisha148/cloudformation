@@ -50,55 +50,7 @@ Resources:
       'AWS::CloudFormation::Designer':
         id: 598902f5-e815-4438-8cc9-b9ab132245f1
 
-#   VPC:
-#     Type: AWS::EC2::VPC
-#     Properties:
-#       CidrBlock: 10.1.0.0/16
-#       EnableDnsSupport: true
-#       EnableDnsHostnames: true
-#       Tags:
-#       - Key: 'iac-type'
-#         Value: 'vpc'
-
-#   taskdefinition:
-#     Type: 'AWS::ECS::TaskDefinition'
-#     DeletionPolicy : Retain
-#     Properties:
-#       containerDefinitions:
-#         - command:
-#             - >-
-#               /bin/sh -c "echo '<html> <head> <title>Amazon ECS Sample
-#               App</title> <style>body {margin-top: 40px; background-color:
-#               #333;} </style> </head><body> <div
-#               style=color:white;text-align:center> <h1>Amazon ECS Sample
-#               App</h1> <h2>Congratulations!</h2> <p>Your application is now
-#               running on a container in Amazon ECS.</p> </div></body></html>' > 
-#               /usr/local/apache2/htdocs/index.html && httpd-foreground"
-#           entryPoint:
-#             - sh
-#             - '-c'
-#           essential: true
-#           image: 'httpd:2.4'
-#           logConfiguration:
-#             logDriver: awslogs
-#             options:
-#               awslogs-group: /ecs/fargate-task-definition
-#               awslogs-region: us-east-1
-#               awslogs-stream-prefix: ecs
-#           name: sample-fargate-app
-#           portMappings:
-#             - containerPort: 80
-#               hostPort: 80
-#               protocol: tcp
-#       cpu: '256'
-#       executionRoleArn: 'arn:aws:iam::978526189023:role/ecs_cloudf'
-#       family: fargate-task-definition-cfn
-#       memory: '512'
-#       networkMode: awsvpc
-#       requiresCompatibilities:
-#         - FARGATE
-#       runtimePlatform:
-#         OperatingSystemFamily: LINUX     
+ 
 AWSTemplateFormatVersion: 2010-09-09
 Metadata:
   'AWS::CloudFormation::Designer':
