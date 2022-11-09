@@ -17,6 +17,38 @@ Resources:
       Tags:
       - Key: 'iac-type'
         Value: 's3'
+        AWSTemplateFormatVersion: 2010-09-09
+Metadata:
+  'AWS::CloudFormation::Designer':
+    a362be33-b009-4a82-a31a-3d58d013e3cf:
+      size:
+        width: 60
+        height: 60
+      position:
+        x: 414
+        'y': 176
+      z: 0
+    598902f5-e815-4438-8cc9-b9ab132245f1:
+      size:
+        width: 140
+        height: 140
+      position:
+        x: 600
+        'y': 169
+      z: 0
+Resources:
+  EC2I1HVIG:
+    Type: 'AWS::EC2::Instance'
+    Properties: {}
+    Metadata:
+      'AWS::CloudFormation::Designer':
+        id: a362be33-b009-4a82-a31a-3d58d013e3cf
+  EC2VPC3VDDS:
+    Type: 'AWS::EC2::VPC'
+    Properties: {}
+    Metadata:
+      'AWS::CloudFormation::Designer':
+        id: 598902f5-e815-4438-8cc9-b9ab132245f1
 
 #   VPC:
 #     Type: AWS::EC2::VPC
